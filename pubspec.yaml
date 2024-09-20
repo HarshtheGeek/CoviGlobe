@@ -40,6 +40,13 @@ dependencies:
   pie_chart:
   flutter_spinkit:
   shimmer:
+  floating_bottom_navigation_bar:
+  flutter_phone_direct_caller:
+  image_picker:
+  dash_chat_2:
+  flutter_gemini:
+  url_launcher: ^6.3.0
+  dio: ^5.7.0
 
 dev_dependencies:
   flutter_test:
