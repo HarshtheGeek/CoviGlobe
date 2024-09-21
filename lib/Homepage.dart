@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pox_globe/About_section.dart';
 import 'color_pallete/pallete.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 
 class Homepage extends StatefulWidget {
@@ -25,6 +27,22 @@ class _HomepageState extends State<Homepage> {
         ),
         centerTitle: true,
         backgroundColor: Pallete.MainContainerColor,
+        actions: [
+          IconButton(onPressed: (){}, icon: const Icon(Icons.notification_add,color: Colors.white,)),
+          IconButton(onPressed: (){
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const AboutSection()));
+          }, icon: const Icon(Icons.person_2,color: Colors.white,)),
+        ],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(2.0), // Adjust the height as needed
+          child: Container(
+            color: Colors.black, // Set the bottom border color
+          ),
+        ),
+        shadowColor: Colors.black, // Set the shadow color
+        elevation: 4.0,
+
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -48,6 +66,7 @@ class _HomepageState extends State<Homepage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 20),
                   _buildHeader(),
                   const SizedBox(height: 20),
                   _buildSymptomText(),
@@ -81,7 +100,7 @@ class _HomepageState extends State<Homepage> {
                         children: [
                           CircleAvatar(
                             radius: 50,
-                            backgroundImage: AssetImage('assets/background_images/prevention1.png'),
+                            backgroundImage: AssetImage('assets/background_images/Prevention1.png'),
                           ),
                           SizedBox(height: 5,),
                           Text("Wash Your Hands",style: TextStyle(fontFamily: "manrope"),)
@@ -93,10 +112,10 @@ class _HomepageState extends State<Homepage> {
                         children: [
                           CircleAvatar(
                             radius: 50,
-                            backgroundImage: AssetImage('assets/background_images/prevention2.png'),
+                            backgroundImage: AssetImage('assets/background_images/Prevention2.png'),
                           ),
                           SizedBox(height: 5,),
-                          Text("Clean the surface",style: TextStyle(fontFamily: "manrope"),),
+                          Text("Maintain Distance",style: TextStyle(fontFamily: "manrope"),),
                         ],
                       ),
                       SizedBox(width: 20),
@@ -105,7 +124,7 @@ class _HomepageState extends State<Homepage> {
                         children: [
                           CircleAvatar(
                             radius: 50,
-                            backgroundImage: AssetImage('assets/background_images/prevention3.png'),
+                            backgroundImage: AssetImage('assets/background_images/Prevention3.png'),
                           ),
                           SizedBox(height: 5,),
                           Text("Wear a Mask",style: TextStyle(fontFamily: "manrope"),),
@@ -121,7 +140,7 @@ class _HomepageState extends State<Homepage> {
                         children: [
                           CircleAvatar(
                             radius: 50,
-                            backgroundImage: AssetImage('assets/background_images/prevention3.png'),
+                            backgroundImage: AssetImage('assets/background_images/Prevention4.png'),
                           ),
                           SizedBox(height: 5,),
                           Text("Wash Your Hands",style: TextStyle(fontFamily: "manrope"),)
@@ -133,7 +152,7 @@ class _HomepageState extends State<Homepage> {
                         children: [
                           CircleAvatar(
                             radius: 50,
-                            backgroundImage: NetworkImage('https://example.com/your_image.png'),
+                            backgroundImage: AssetImage('assets/background_images/Prevention5.png'),
                           ),
                           SizedBox(height: 5,),
                           Text("Clean the surface",style: TextStyle(fontFamily: "manrope"),),
@@ -145,7 +164,7 @@ class _HomepageState extends State<Homepage> {
                         children: [
                           CircleAvatar(
                             radius: 50,
-                            backgroundColor: Colors.blue,
+                            backgroundImage: AssetImage('assets/background_images/Prevention6.png'),
                           ),
                           SizedBox(height: 5,),
                           Text("Wear a Mask",style: TextStyle(fontFamily: "manrope"),),
@@ -157,6 +176,32 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
           ],
+        ),
+      ),
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+        child: Container(
+          color: Pallete.whiteColor,
+          child: GNav(
+            haptic: true,
+            tabBackgroundColor: Pallete.MainContainerColor,
+            gap: 8,
+            color: Colors.black,
+            activeColor: Colors.white,
+            iconSize: 25,
+            padding: const EdgeInsets.all(15),
+            tabBorder: Border.all(color: Colors.transparent),
+            backgroundColor: Colors.transparent,
+            tabs: const [
+              GButton(icon: Icons.home,text: "Home",),
+              GButton(icon: Icons.auto_graph,text: "Stats",),
+              GButton(icon: Icons.newspaper,text: "News",),
+              GButton(icon: Icons.chat,text: "DocBot",),
+            ],
+          ),
         ),
       ),
     );

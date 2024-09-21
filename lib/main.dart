@@ -5,6 +5,7 @@ import 'package:pox_globe/consts.dart';
 import 'package:pox_globe/real_time_tracker/world_states.dart';
 
 import 'Homepage.dart';
+import 'Newspage.dart';
 import 'Prakashchatbot.dart';
 
 void main() {
